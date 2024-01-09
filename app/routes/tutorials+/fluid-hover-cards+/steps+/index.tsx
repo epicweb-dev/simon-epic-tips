@@ -19,7 +19,7 @@ export default function Index() {
 				<h1 className="text-3xl font-semibold">Steps breakdown</h1>
 
 				{routes.length > 0 && (
-					<ul className="mt-8 flex gap-40">
+					<ul className="mt-8">
 						{routes.map((route, index) => {
 							const step = formatStep(index + 1)
 							return (
