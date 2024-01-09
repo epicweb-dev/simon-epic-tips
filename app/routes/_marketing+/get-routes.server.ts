@@ -1,4 +1,4 @@
-import { glob } from 'glob'
+import { getRoutes as globRoutes } from '#app/utils/get-routes.server'
 
 type Route = {
 	name: string
@@ -7,12 +7,12 @@ type Route = {
 
 type Routes = {
 	tips: Route[]
-	uiChallenges: Route[]
+	tutorials: Route[]
 }
 
 export const getRoutes: () => Promise<Routes> = async () => {
-	const tipRoutes = await glob('app/routes/tips+/*.tsx')
-	const tutorialRoutes = await glob('app/routes/tutorials+/*/*.tsx')
+	const tipRoutes = await globRoutes('app/routes/tips+/*.tsx')
+	const tutorialRoutes = await globRoutes('app/routes/tutorials+/*/*.tsx')
 	const tips = tipRoutes
 		.map(route => ({
 			name: route
