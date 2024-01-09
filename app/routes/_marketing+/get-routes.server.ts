@@ -12,7 +12,7 @@ type Routes = {
 
 export const getRoutes: () => Promise<Routes> = async () => {
 	const tipRoutes = await glob('app/routes/tips+/*.tsx')
-	const uiChallengeRoutes = await glob('app/routes/ui-challenges+/*.tsx')
+	const tutorialRoutes = await glob('app/routes/tutorials+/*/*.tsx')
 	const tips = tipRoutes
 		.map(route => ({
 			name: route
@@ -23,16 +23,17 @@ export const getRoutes: () => Promise<Routes> = async () => {
 		}))
 		.sort((a, b) => a.name.localeCompare(b.name))
 
-	const uiChallenges = uiChallengeRoutes
+	const tutorials = tutorialRoutes
 		.map(route => ({
 			name: route
-				.replace('app/routes/ui-challenges+/', '')
-				.replace('.tsx', '')
+				.replace('app/routes/tutorials+/', '')
+				.replace('+/index.tsx', '')
 				.replace(/-/g, ' '),
 			path: route
-				.replace('app/routes/ui-challenges+', '/ui-challenges')
-				.replace('.tsx', ''),
+				.replace('app/routes/tutorials+', '/tutorials')
+				.replace('+', '')
+				.replace('index.tsx', ''),
 		}))
 		.sort((a, b) => a.name.localeCompare(b.name))
-	return { tips, uiChallenges }
+	return { tips, tutorials }
 }

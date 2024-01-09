@@ -3,16 +3,16 @@ import { Link, useLoaderData } from '@remix-run/react'
 import { getRoutes } from './get-routes.server'
 
 export const loader = async () => {
-	const { tips, uiChallenges } = await getRoutes()
+	const { tips, tutorials } = await getRoutes()
 	if (!tips) throw new Error('Tips not found')
-	if (!uiChallenges) throw new Error('UI Challenges not found')
-	return json({ tips, uiChallenges })
+	if (!tutorials) throw new Error('UI Challenges not found')
+	return json({ tips, tutorials })
 }
 
 export const meta: MetaFunction = () => [{ title: 'Epic CSS Tips' }]
 
 export default function Index() {
-	const { tips, uiChallenges } = useLoaderData<typeof loader>()
+	const { tips, tutorials } = useLoaderData<typeof loader>()
 	return (
 		<main>
 			<div className="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
@@ -34,17 +34,17 @@ export default function Index() {
 						</li>
 					)}
 
-					{uiChallenges.length > 0 && (
+					{tutorials.length > 0 && (
 						<li>
-							<h2 className="text-xl font-medium">UI Challenges</h2>
+							<h2 className="text-xl font-medium">Tutorials</h2>
 							<ul className="mt-2">
-								{uiChallenges.map(challenge => (
-									<li key={challenge.name} className="py-0.5">
+								{tutorials.map(tutorial => (
+									<li key={tutorial.name} className="py-0.5">
 										<Link
-											to={challenge.path}
+											to={tutorial.path}
 											className="capitalize hover:underline"
 										>
-											{challenge.name}
+											{tutorial.name}
 										</Link>
 									</li>
 								))}
