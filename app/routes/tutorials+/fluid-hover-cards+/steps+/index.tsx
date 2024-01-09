@@ -1,7 +1,7 @@
 import { json } from '@remix-run/node'
 import { Link, useLoaderData } from '@remix-run/react'
-import { getRoutes } from '#app/utils/get-routes.server'
 import { formatStep } from '#app/utils/format-step'
+import { getRoutes } from '#app/utils/get-routes.server'
 
 export async function loader() {
 	const routes = await getRoutes(
