@@ -19,7 +19,7 @@ export default function HoverStretchCards() {
 							src={`https://images.unsplash.com/photo-${imageIds[index]}?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dmlicmFudHxlbnwwfHwwfHx8MA%3D%3D`}
 							alt=""
 						/>
-						<div className="absolute inset-x-0 bottom-0 p-4">
+						<div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 from-30% p-4">
 							<h2 className="text-2xl font-medium text-white">
 								The card title is here.
 							</h2>

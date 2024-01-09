@@ -12,21 +12,23 @@ export default function HoverStretchCards() {
 				{[...Array(4).keys()].map((_, index) => (
 					<li
 						key={index}
-						className="relative h-[500px] w-full overflow-hidden rounded-2xl bg-rose-300"
+						className="group relative h-[500px] w-full overflow-hidden rounded-2xl bg-rose-300"
 					>
 						<img
 							className="absolute inset-0 h-full w-full object-cover"
 							src={`https://images.unsplash.com/photo-${imageIds[index]}?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dmlicmFudHxlbnwwfHwwfHx8MA%3D%3D`}
 							alt=""
 						/>
-						<div className="absolute inset-x-0 bottom-0 p-4">
+						<div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 from-30% p-4">
 							<h2 className="text-2xl font-medium text-white">
 								The card title is here.
 							</h2>
-							<p className="mt-2 text-white/70">
-								Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima
-								quia ipsa eius.
-							</p>
+							<div className="grid grid-rows-[0fr] transition-all  group-hover:grid-rows-[1fr]">
+								<p className="mt-2 overflow-hidden text-white/70 opacity-0 transition duration-300 group-hover:opacity-100">
+									Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+									Minima quia ipsa eius.
+								</p>
+							</div>
 						</div>
 					</li>
 				))}
