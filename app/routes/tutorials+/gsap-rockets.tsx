@@ -81,7 +81,7 @@ export default function Rockets() {
 						</p>
 						<a
 							className="mt-16 inline-block rounded-full bg-violet-600 px-8 py-3 font-semibold text-white"
-							href="#"
+							href="https://epic-web.dev/epic-stack"
 						>
 							Explore rockets
 						</a>

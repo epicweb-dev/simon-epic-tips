@@ -51,14 +51,7 @@ export default function MotionOneStagger() {
 		)
 	}, [])
 
-	type Logo = {
-		image: string
-		href: string
-		column: 1 | 2 | 3 | 4 | 5
-		row: 1 | 2 | 3 | 4 | 5 | 6
-	}
-
-	const columnClasses: Record<Logo['column'], string> = {
+	const columnClasses: Record<(typeof logos)[number]['column'], string> = {
 		1: 'xl:col-start-1',
 		2: 'xl:col-start-2',
 		3: 'xl:col-start-3',
@@ -66,7 +59,7 @@ export default function MotionOneStagger() {
 		5: 'xl:col-start-5',
 	}
 
-	const rowClasses: Record<Logo['row'], string> = {
+	const rowClasses: Record<(typeof logos)[number]['row'], string> = {
 		1: 'xl:row-start-1',
 		2: 'xl:row-start-2',
 		3: 'xl:row-start-3',
@@ -100,7 +93,7 @@ export default function MotionOneStagger() {
 	]
 
 	return (
-		<div className="font-poppins grid min-h-svh place-items-center bg-white dark:bg-black">
+		<div className="grid min-h-svh place-items-center bg-white font-poppins dark:bg-black">
 			<div className="grid place-items-center px-4 py-16 xl:grid-cols-2 xl:gap-24">
 				<div className="xl:order-2">
 					<div className="flex max-w-md flex-col items-center text-center xl:items-start xl:text-left">
@@ -128,7 +121,10 @@ export default function MotionOneStagger() {
 							className="mt-6 text-xl/7 text-slate-700 dark:text-slate-400"
 						>
 							Check the{' '}
-							<a className="underline hover:no-underline" href="#">
+							<a
+								className="underline hover:no-underline"
+								href="https://epicweb.dev/epic-stack"
+							>
 								Getting Started guide
 							</a>
 							file for how to get your project off the ground!
